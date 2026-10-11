@@ -100,7 +100,7 @@ export const DepartmentSpotlight: React.FC<DepartmentSpotlightProps> = ({
                           {deptTee.shortTitle}
                         </div>
                         <div className="text-[11px] font-mono tabular-nums text-slate-500">
-                          ${deptTee.price.toFixed(2)} · In Store Rack A
+                          ₹{deptTee.price.toLocaleString('en-IN')} · In Store Rack A
                         </div>
                       </div>
                     </div>

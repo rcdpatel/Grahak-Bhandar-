@@ -204,7 +204,7 @@ export const CalculatorCheckerModal: React.FC<CalculatorCheckerModalProps> = ({
                   </div>
                   <div className="flex items-center justify-between pt-1 border-t border-slate-100">
                     <span className="font-mono tabular-nums font-bold text-xs text-slate-900">
-                      ${calc.price.toFixed(2)}
+                      ₹{calc.price.toLocaleString('en-IN')}
                     </span>
                     <span className="text-[11px] font-medium text-blue-600 hover:underline">
                       View Model →

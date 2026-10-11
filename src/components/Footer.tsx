@@ -1,5 +1,6 @@
 import React from 'react';
 import { ProductCategory, SchoolDepartment } from '../types/store';
+import { StoreLogo } from './StoreLogo';
 
 interface FooterProps {
   onSelectCategory: (category: ProductCategory | 'all') => void;
@@ -23,15 +24,23 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Column 1: Brand & Physical Store */}
           <div className="space-y-3 col-span-2 md:col-span-1">
-            <div className="text-lg font-bold text-white font-display">
-              Grahak Bhandar
+            <div className="flex items-center gap-3">
+              <StoreLogo size={46} />
+              <div>
+                <div className="text-lg font-bold text-white font-display leading-tight">
+                  Grahak Bhandar
+                </div>
+                <div className="text-[10px] text-amber-400 font-semibold uppercase tracking-wider">
+                  Shirpur Education Society (SES)
+                </div>
+              </div>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed">
-              Official university campus store & cooperative depot. Providing students with subsidized academic goods, department t-shirts, calculators, and lab components.
+              Official campus cooperative store for Shirpur Education Society (SES). Providing students with subsidized academic goods, department t-shirts, calculators, and lab components.
             </p>
             <div className="text-[11px] text-slate-500">
               Student Activity Center · Room 104<br />
-              Hours: Mon–Sat 8:30 AM – 6:30 PM
+              SES Campus, Shirpur (Dhule) · Hours: Mon–Sat 8:30 AM – 6:30 PM
             </div>
           </div>
 

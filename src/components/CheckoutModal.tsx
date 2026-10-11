@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, CheckCircle2, MapPin, Clock, CreditCard, ShieldCheck, Ticket } from 'lucide-react';
 import { CartItem, PickupOrder } from '../types/store';
+import { StoreLogo } from './StoreLogo';
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -74,15 +75,18 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         className="relative bg-white rounded-2xl max-w-2xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* Header with Store Logo */}
         <div className="flex items-center justify-between p-5 border-b border-slate-200">
-          <div>
-            <h2 className="text-lg font-bold text-slate-900 font-display">
-              Campus Physical Store Pickup Checkout
-            </h2>
-            <p className="text-xs text-slate-500">
-              Pick up at Student Activity Center · No shipping fees, zero wait time
-            </p>
+          <div className="flex items-center gap-3">
+            <StoreLogo size={42} />
+            <div>
+              <h2 className="text-lg font-bold text-slate-900 font-display">
+                Campus Store Pickup Checkout
+              </h2>
+              <p className="text-xs text-slate-500">
+                Grahak Bhandar · Student Activity Center Room 104 · No shipping fee
+              </p>
+            </div>
           </div>
           <button
             onClick={onClose}
@@ -219,8 +223,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 }`}
               >
                 <div className="space-y-1">
-                  <div className="font-semibold text-slate-900">Credit / Debit</div>
-                  <div className="text-[11px] text-slate-500 font-normal">Pre-pay online securely</div>
+                  <div className="font-semibold text-slate-900">UPI / GPay / Card</div>
+                  <div className="text-[11px] text-slate-500 font-normal">Pre-pay via UPI QR or Card</div>
                 </div>
                 <input
                   type="radio"
@@ -245,7 +249,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     {i.quantity}x {i.title}
                   </span>
                   <span className="font-mono tabular-nums text-slate-900">
-                    ${(i.price * i.quantity).toFixed(2)}
+                    ₹{(i.price * i.quantity).toLocaleString('en-IN')}
                   </span>
                 </div>
               ))}
@@ -253,17 +257,17 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <div className="pt-2 border-t border-slate-200 space-y-1">
               <div className="flex justify-between text-slate-500">
                 <span>Subtotal:</span>
-                <span className="font-mono tabular-nums">${subtotal.toFixed(2)}</span>
+                <span className="font-mono tabular-nums">₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
               {discount > 0 && (
                 <div className="flex justify-between text-emerald-700 font-medium">
                   <span>Student 10% Discount:</span>
-                  <span className="font-mono tabular-nums">-${discount.toFixed(2)}</span>
+                  <span className="font-mono tabular-nums">-₹{Math.round(discount).toLocaleString('en-IN')}</span>
                 </div>
               )}
               <div className="flex justify-between text-sm font-bold text-slate-900 pt-1 border-t border-slate-200">
                 <span>Total Due:</span>
-                <span className="font-mono tabular-nums text-base">${total.toFixed(2)}</span>
+                <span className="font-mono tabular-nums text-base">₹{Math.round(total).toLocaleString('en-IN')}</span>
               </div>
             </div>
           </div>

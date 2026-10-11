@@ -4,7 +4,7 @@ import {
   Shield, 
   ShoppingBag, 
   Users, 
-  DollarSign, 
+  IndianRupee, 
   Clock, 
   CheckCircle2, 
   Search, 
@@ -20,6 +20,7 @@ import {
   Code
 } from 'lucide-react';
 import { PickupOrder, RegisteredStudent } from '../types/store';
+import { StoreLogo } from './StoreLogo';
 
 interface AdminPanelModalProps {
   isOpen: boolean;
@@ -155,20 +156,18 @@ npm run dev
         {/* Top Admin Header */}
         <div className="p-5 sm:p-6 border-b border-slate-200 flex items-center justify-between bg-slate-900 text-white rounded-t-2xl">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
-              <Shield className="w-5 h-5" />
-            </div>
+            <StoreLogo size={46} />
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-bold font-display">
                   Grahak Bhandar · Store Admin Portal
                 </h2>
                 <span className="text-[10px] font-mono uppercase bg-amber-400 text-slate-950 font-bold px-1.5 py-0.5 rounded">
-                  Live Counter
+                  SES Campus
                 </span>
               </div>
               <p className="text-xs text-slate-400">
-                Track student orders, registered student customers & manage physical desk pickups
+                Shirpur Education Society · Track student orders, registrations & physical desk pickups
               </p>
             </div>
           </div>
@@ -184,7 +183,7 @@ npm run dev
           </div>
         </div>
 
-        {/* Real-Time Metrics Strip */}
+        {/* Real-Time Metrics Strip in Rupees */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 p-5 sm:p-6 bg-slate-50 border-b border-slate-200">
           <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
             <div className="text-xs text-slate-500 flex items-center justify-between">
@@ -208,17 +207,17 @@ npm run dev
               {students.length}
             </div>
             <div className="text-[11px] text-slate-500">
-              Verified campus card holders
+              Verified SES student ID holders
             </div>
           </div>
 
           <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
             <div className="text-xs text-slate-500 flex items-center justify-between">
-              <span>Orders Value</span>
-              <DollarSign className="w-4 h-4 text-slate-400" />
+              <span>Orders Value (INR)</span>
+              <IndianRupee className="w-4 h-4 text-amber-700" />
             </div>
             <div className="text-2xl font-bold font-mono tabular-nums text-slate-900">
-              ${totalRevenue.toFixed(2)}
+              ₹{Math.round(totalRevenue).toLocaleString('en-IN')}
             </div>
             <div className="text-[11px] text-slate-500">
               Subsidized student rates
@@ -375,7 +374,7 @@ npm run dev
                             </div>
                           </td>
                           <td className="py-3 px-4 font-mono tabular-nums font-bold text-slate-900 whitespace-nowrap">
-                            ${order.total.toFixed(2)}
+                            ₹{Math.round(order.total).toLocaleString('en-IN')}
                             <span className="block text-[10px] font-sans text-slate-400 font-normal">
                               {order.paymentMethod.includes('Desk') ? 'Pay at Counter' : 'Pre-Paid'}
                             </span>
@@ -466,7 +465,7 @@ npm run dev
                           {student.ordersCount} orders
                         </td>
                         <td className="py-3 px-4 font-mono tabular-nums font-bold text-emerald-700 whitespace-nowrap">
-                          ${student.totalSpent.toFixed(2)}
+                          ₹{Math.round(student.totalSpent).toLocaleString('en-IN')}
                         </td>
                         <td className="py-3 px-4 text-slate-400 whitespace-nowrap">
                           {student.registeredDate}

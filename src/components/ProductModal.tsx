@@ -116,7 +116,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             </div>
 
             <div className="pt-4 flex items-center justify-between text-xs text-slate-500">
-              <span>QuadDepot ID: #{product.id}</span>
+              <span>Grahak Bhandar ID: #{product.id}</span>
               <button
                 onClick={handleShare}
                 className="flex items-center gap-1 hover:text-slate-900 transition-colors cursor-pointer"
@@ -150,14 +150,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 )}
               </div>
 
-              {/* Price Row */}
+              {/* Price Row in Rupees */}
               <div className="flex items-baseline gap-3 pb-3 border-b border-slate-200">
                 <span className="font-mono tabular-nums text-2xl font-bold text-slate-900">
-                  ${product.price.toFixed(2)}
+                  ₹{product.price.toLocaleString('en-IN')}
                 </span>
                 {product.originalPrice && (
                   <span className="font-mono tabular-nums text-sm text-slate-400 line-through">
-                    ${product.originalPrice.toFixed(2)}
+                    ₹{product.originalPrice.toLocaleString('en-IN')}
                   </span>
                 )}
                 <span className="text-xs text-emerald-700 font-medium">
@@ -301,7 +301,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   ) : (
                     <>
                       <ShoppingBag className="w-4 h-4" />
-                      <span>Add to Pickup Bag · ${(product.price * quantity).toFixed(2)}</span>
+                      <span>Add to Pickup Bag · ₹{(product.price * quantity).toLocaleString('en-IN')}</span>
                     </>
                   )}
                 </button>

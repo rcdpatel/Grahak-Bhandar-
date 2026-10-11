@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle2, QrCode, Printer, MapPin, Clock, ArrowRight, Share2, Ticket, Check } from 'lucide-react';
 import { PickupOrder } from '../types/store';
+import { StoreLogo } from './StoreLogo';
 
 interface OrderSuccessModalProps {
   order: PickupOrder | null;
@@ -33,17 +34,20 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
       >
         {/* Pass Top Banner */}
         <div className="bg-slate-900 text-white p-6 rounded-t-2xl text-center space-y-2 relative">
-          <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-2 border border-emerald-500/30">
-            <CheckCircle2 className="w-7 h-7" />
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <StoreLogo size={52} />
+            <div className="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
+              <CheckCircle2 className="w-6 h-6" />
+            </div>
           </div>
           <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold font-mono">
-            Digital Campus Pickup Pass
+            SES Grahak Bhandar · Official Digital Pickup Pass
           </span>
           <h2 className="text-2xl font-black font-display tracking-tight">
             Order #{order.orderNumber}
           </h2>
           <p className="text-xs text-slate-300">
-            Present this pass or scan barcode at the Express Pickup Desk
+            Room 104 Express Desk · Show this screen or scan barcode
           </p>
         </div>
 
@@ -124,7 +128,7 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
           <div className="border-t border-slate-200 pt-3 space-y-2 text-xs">
             <div className="font-semibold text-slate-900 uppercase tracking-wider flex justify-between">
               <span>Items Packed ({order.items.length})</span>
-              <span className="font-mono tabular-nums font-bold">${order.total.toFixed(2)}</span>
+              <span className="font-mono tabular-nums font-bold">₹{Math.round(order.total).toLocaleString('en-IN')}</span>
             </div>
             <div className="space-y-1 text-slate-600 max-h-24 overflow-y-auto pr-1">
               {order.items.map((item) => (
@@ -134,7 +138,7 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
                     {item.selectedSize ? ` (${item.selectedSize})` : ''}
                   </span>
                   <span className="font-mono tabular-nums text-slate-900">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                   </span>
                 </div>
               ))}

@@ -104,7 +104,7 @@ export const PhysicalStoreSection: React.FC = () => {
             </div>
 
             <div className="pt-2 border-t border-slate-800 text-xs text-slate-400">
-              Need bulk order for a student club or faculty event? Email <span className="text-white">orders@quaddepot.edu</span> or call Ext. 4410.
+              Need bulk order for a student club or faculty event? Email <span className="text-white">grahakbhandar@ses.ac.in</span> or visit Room 104 Counter.
             </div>
           </div>
 

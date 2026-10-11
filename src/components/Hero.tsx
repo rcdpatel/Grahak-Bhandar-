@@ -3,6 +3,8 @@ import { ArrowRight, ShoppingBag, Sparkles, MapPin, CheckCircle2, Shield, Clock,
 import { HERO_STORE_IMG } from '../data/products';
 import { ProductCategory, SchoolDepartment } from '../types/store';
 
+import { StoreLogo } from './StoreLogo';
+
 interface HeroProps {
   onShopCategory: (category: ProductCategory) => void;
   onExploreDepartmentTees: () => void;
@@ -23,8 +25,19 @@ export const Hero: React.FC<HeroProps> = ({
           
           {/* Left Column: Authentic Brand Copy */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="text-xs uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-2">
-              <span>Grahak Bhandar · Official Campus Store & Cooperative Depot</span>
+            <div className="flex items-center gap-3.5">
+              <StoreLogo size={54} />
+              <div>
+                <div className="text-xs uppercase tracking-wider text-amber-400 font-bold flex items-center gap-2">
+                  <span>Grahak Bhandar (ग्राहक भण्डार)</span>
+                  <span className="text-[10px] bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded border border-amber-400/30 font-mono">
+                    Official Campus Store
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-400 font-medium mt-0.5">
+                  Shirpur Education Society (SES) · ॥ सा विद्या या विमुक्तये ॥
+                </div>
+              </div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-display leading-[1.15] text-balance">

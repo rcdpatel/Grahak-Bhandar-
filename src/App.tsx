@@ -21,6 +21,7 @@ import { OrderSuccessModal } from './components/OrderSuccessModal';
 import { AdminPanelModal } from './components/AdminPanelModal';
 import { PhysicalStoreSection } from './components/PhysicalStoreSection';
 import { Footer } from './components/Footer';
+import { WebCornerLogo } from './components/WebCornerLogo';
 import { Sparkles, Layers, RefreshCw, Shield } from 'lucide-react';
 
 const CART_STORAGE_KEY = 'grahak_bhandar_cart_v2';
@@ -41,8 +42,8 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
       {
         id: 'tee-eng-1',
         productId: 'tee-engineering-cs',
-        title: 'School of Engineering & CS Heavyweight Varsity Tee',
-        price: 24.99,
+        title: 'RCPIT Computer Engineering & IT Heavyweight Varsity Tee',
+        price: 449,
         image: PRODUCTS[0].image,
         quantity: 1,
         selectedSize: 'L',
@@ -53,15 +54,15 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
         id: 'calc-1',
         productId: 'calc-casio-fx991ex',
         title: 'Scientific Engineering Calculator (Casio fx-991EX ClassWiz)',
-        price: 34.99,
+        price: 1295,
         image: PRODUCTS[6].image,
         quantity: 1,
         storeLocation: 'Aisle 3 · Shelf B2',
       },
     ],
-    subtotal: 59.98,
-    discount: 5.99,
-    total: 53.99,
+    subtotal: 1744,
+    discount: 174,
+    total: 1570,
     paymentMethod: 'Campus Student Card Account (Direct Charge)',
     pickupCode: 'QD-7412',
     status: 'Ready for Pickup',
@@ -79,8 +80,8 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
       {
         id: 'coat-1',
         productId: 'lab-cotton-coat-embroidered',
-        title: '100% Heavy Cotton White Laboratory Coat with College Crest',
-        price: 29.99,
+        title: '100% Pure White Cotton Laboratory Apron with SES College Crest',
+        price: 499,
         image: PRODUCTS[10].image,
         quantity: 1,
         selectedSize: 'M',
@@ -90,15 +91,15 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
         id: 'goggles-1',
         productId: 'lab-anti-fog-safety-goggles',
         title: 'Chemical Splash & Impact Anti-Fog Safety Lab Goggles',
-        price: 9.99,
+        price: 149,
         image: PRODUCTS[11].image,
         quantity: 1,
         storeLocation: 'Aisle 4 · Safety Bins',
       },
     ],
-    subtotal: 39.98,
-    discount: 4.00,
-    total: 35.98,
+    subtotal: 648,
+    discount: 65,
+    total: 583,
     paymentMethod: 'Pay in Person at Physical Counter (Room 104)',
     pickupCode: 'QD-8921',
     status: 'Processing at Desk',
@@ -116,17 +117,17 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
       {
         id: 'draft-1',
         productId: 'set-master-geometry-drafting',
-        title: 'Precision Metal Geometry & Technical Drafting 10-Piece Tin Set',
-        price: 18.99,
+        title: 'Precision Metal Engineering Drawing & Drafting 10-Piece Tin Set',
+        price: 349,
         image: PRODUCTS[9].image,
         quantity: 1,
         storeLocation: 'Aisle 2 · Station B4',
       },
     ],
-    subtotal: 18.99,
-    discount: 1.90,
-    total: 17.09,
-    paymentMethod: 'Credit / Debit Card (Online)',
+    subtotal: 349,
+    discount: 35,
+    total: 314,
+    paymentMethod: 'UPI / Online (GPay/PhonePe)',
     pickupCode: 'QD-5501',
     status: 'Completed',
     createdAt: new Date(Date.now() - 86400000).toISOString(),
@@ -140,8 +141,8 @@ const INITIAL_SAMPLE_STUDENTS: RegisteredStudent[] = [
     phoneNumber: '+91 98201 44521',
     registeredDate: 'Sep 2024',
     ordersCount: 3,
-    totalSpent: 124.50,
-    department: 'School of Engineering & Computing',
+    totalSpent: 3450,
+    department: 'R. C. Patel Institute of Technology (RCPIT)',
   },
   {
     studentId: 'STU-2024-3382',
@@ -149,8 +150,8 @@ const INITIAL_SAMPLE_STUDENTS: RegisteredStudent[] = [
     phoneNumber: '+91 97120 89312',
     registeredDate: 'Oct 2024',
     ordersCount: 2,
-    totalSpent: 62.48,
-    department: 'School of Medicine & Health Sciences',
+    totalSpent: 1680,
+    department: 'R. C. Patel Institute of Pharmacy (RCPIPER)',
   },
   {
     studentId: 'STU-2023-8819',
@@ -158,17 +159,17 @@ const INITIAL_SAMPLE_STUDENTS: RegisteredStudent[] = [
     phoneNumber: '+91 98920 12044',
     registeredDate: 'Aug 2023',
     ordersCount: 5,
-    totalSpent: 189.20,
-    department: 'School of Architecture & Design',
+    totalSpent: 4200,
+    department: 'SES Polytechnic & Architecture Studies',
   },
   {
     studentId: 'STU-2024-5821',
     name: 'Alex Rivers',
-    phoneNumber: '+1 (555) 349-2190',
+    phoneNumber: '+91 98234 11092',
     registeredDate: 'Jan 2025',
     ordersCount: 1,
-    totalSpent: 26.50,
-    department: 'School of Business & Economics',
+    totalSpent: 899,
+    department: 'SES Institute of Management & Research',
   },
 ];
 
@@ -210,8 +211,8 @@ export default function App() {
       {
         id: 'initial-eng-tee',
         productId: 'tee-engineering-cs',
-        title: 'School of Engineering & CS Heavyweight Varsity Tee',
-        price: 24.99,
+        title: 'RCPIT Computer Engineering & IT Heavyweight Varsity Tee',
+        price: 449,
         image: PRODUCTS[0].image,
         quantity: 1,
         selectedSize: 'L',
@@ -427,15 +428,15 @@ export default function App() {
           id: `sim-item-${Date.now()}`,
           productId: 'calc-casio-fx991ex',
           title: 'Scientific Engineering Calculator (Casio fx-991EX ClassWiz)',
-          price: 34.99,
+          price: 1295,
           image: PRODUCTS[6].image,
           quantity: 1,
           storeLocation: 'Aisle 3 · Shelf B2',
         },
       ],
-      subtotal: 34.99,
-      discount: 3.50,
-      total: 31.49,
+      subtotal: 1295,
+      discount: 130,
+      total: 1165,
       paymentMethod: 'Campus Student Card Account (Direct Charge)',
       pickupCode: `QD-${randomNum}`,
       status: 'Ready for Pickup',
@@ -798,6 +799,9 @@ export default function App() {
         onUpdateOrderStatus={handleUpdateOrderStatus}
         onAddSimulatedOrder={handleAddSimulatedOrder}
       />
+
+      {/* Official SES Logo in Web Corner as requested */}
+      <WebCornerLogo />
 
     </div>
   );

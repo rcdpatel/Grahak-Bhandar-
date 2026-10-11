@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Clock, ShieldCheck, Ticket, Shield } from 'lucide-react';
 import { PHYSICAL_STORE_INFO } from '../data/products';
+import { SESLogo } from './SESLogo';
 
 interface PhysicalStoreBannerProps {
   onOpenCalcChecker: () => void;
@@ -16,15 +17,22 @@ export const PhysicalStoreBanner: React.FC<PhysicalStoreBannerProps> = ({
   onOpenAdminPanel,
 }) => {
   return (
-    <div className="bg-slate-950 text-slate-200 text-xs py-2.5 px-4 border-b border-slate-800">
+    <div className="bg-slate-950 text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-slate-300">
-          <span className="flex items-center gap-1.5 font-semibold text-amber-300">
+          {/* Top-left Web Corner: SES Emblem */}
+          <div className="flex items-center gap-1.5 font-semibold text-amber-300">
+            <SESLogo size={18} className="shrink-0 drop-shadow-xs" />
+            <span>Shirpur Education Society (SES)</span>
+            <span className="text-slate-500 font-normal hidden lg:inline">॥ सा विद्या या विमुक्तये ॥</span>
+          </div>
+          <span aria-hidden="true" className="text-slate-600 hidden sm:inline">·</span>
+          <span className="flex items-center gap-1.5 text-slate-300">
             <MapPin className="w-3.5 h-3.5 text-amber-400" />
-            Grahak Bhandar Campus Store · Room 104 (Student Center)
+            Grahak Bhandar · Room 104 (Student Center)
           </span>
           <span aria-hidden="true" className="text-slate-600 hidden md:inline">·</span>
-          <span className="flex items-center gap-1.5 text-slate-300">
+          <span className="flex items-center gap-1.5 text-slate-300 hidden sm:inline-flex">
             <Clock className="w-3.5 h-3.5 text-slate-400" />
             Express Pickups Ready in 20 Mins (Mon–Sat 8:30 AM–6:30 PM)
           </span>

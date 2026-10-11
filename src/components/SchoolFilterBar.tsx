@@ -83,8 +83,8 @@ export const SchoolFilterBar: React.FC<SchoolFilterBarProps> = ({
                 className="bg-transparent text-slate-900 font-medium cursor-pointer focus:outline-hidden"
               >
                 <option value="featured">Featured First</option>
-                <option value="price-low">Price: Low to High ($ → $$$)</option>
-                <option value="price-high">Price: High to Low ($$$ → $)</option>
+                <option value="price-low">Price: Low to High (₹ → ₹₹₹)</option>
+                <option value="price-high">Price: High to Low (₹₹₹ → ₹)</option>
                 <option value="rating">Highest Rated</option>
               </select>
             </div>

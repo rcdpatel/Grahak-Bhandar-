@@ -141,14 +141,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
       {/* Footer Strip: Price baseline & Add to Cart button */}
       <div className="p-4 pt-0 border-t border-slate-100 flex items-center justify-between mt-3">
-        {/* Tabular Price */}
+        {/* Tabular Price in Rupees */}
         <div className="flex items-baseline gap-2">
           <span className="font-mono tabular-nums text-base font-bold text-slate-900">
-            ${product.price.toFixed(2)}
+            ₹{product.price.toLocaleString('en-IN')}
           </span>
           {product.originalPrice && (
             <span className="font-mono tabular-nums text-xs text-slate-400 line-through">
-              ${product.originalPrice.toFixed(2)}
+              ₹{product.originalPrice.toLocaleString('en-IN')}
             </span>
           )}
         </div>

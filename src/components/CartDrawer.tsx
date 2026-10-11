@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Trash2, ShoppingBag, ArrowRight, Tag, MapPin, Clock, ShieldCheck, Ticket } from 'lucide-react';
 import { CartItem } from '../types/store';
+import { StoreLogo } from './StoreLogo';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -56,14 +57,17 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         className="w-full max-w-md bg-white h-full shadow-2xl flex flex-col justify-between border-l border-slate-200"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* Header with StoreLogo */}
         <div className="p-5 border-b border-slate-200 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <ShoppingBag className="w-5 h-5 text-slate-900" />
-            <h2 className="text-lg font-bold text-slate-900 font-display">
-              Campus Pickup Bag
-            </h2>
-            <span className="font-mono tabular-nums text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium">
+            <StoreLogo size={36} />
+            <div>
+              <h2 className="text-base font-bold text-slate-900 font-display leading-tight">
+                Campus Pickup Bag
+              </h2>
+              <span className="text-[10px] text-slate-500 font-medium">Grahak Bhandar Counter 104</span>
+            </div>
+            <span className="font-mono tabular-nums text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-medium ml-1">
               {items.reduce((acc, i) => acc + i.quantity, 0)} items
             </span>
           </div>
@@ -162,7 +166,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </div>
 
                         <div className="font-mono tabular-nums text-xs font-bold text-slate-900">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                         </div>
                       </div>
                     </div>
@@ -262,12 +266,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <div className="space-y-1.5 text-xs">
               <div className="flex justify-between text-slate-600">
                 <span>Subtotal ({items.length} items):</span>
-                <span className="font-mono tabular-nums text-slate-900">${subtotal.toFixed(2)}</span>
+                <span className="font-mono tabular-nums text-slate-900">₹{subtotal.toLocaleString('en-IN')}</span>
               </div>
               {hasStudentDiscount && (
                 <div className="flex justify-between text-emerald-700 font-medium">
                   <span>Student Discount (10%):</span>
-                  <span className="font-mono tabular-nums">-${discountAmount.toFixed(2)}</span>
+                  <span className="font-mono tabular-nums">-₹{Math.round(discountAmount).toLocaleString('en-IN')}</span>
                 </div>
               )}
               <div className="flex justify-between text-slate-600">
@@ -276,7 +280,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               </div>
               <div className="flex justify-between text-sm font-bold text-slate-900 pt-1.5 border-t border-slate-200">
                 <span>Total Amount:</span>
-                <span className="font-mono tabular-nums text-base">${finalTotal.toFixed(2)}</span>
+                <span className="font-mono tabular-nums text-base">₹{Math.round(finalTotal).toLocaleString('en-IN')}</span>
               </div>
             </div>
 

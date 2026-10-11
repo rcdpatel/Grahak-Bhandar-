@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Sparkles, Check, ShoppingBag, RotateCcw } from 'lucide-react';
 import { Product, SchoolDepartment } from '../types/store';
 import { SCHOOLS, PRODUCTS } from '../data/products';
+import { StoreLogo } from './StoreLogo';
 
 interface TShirtCustomizerModalProps {
   isOpen: boolean;
@@ -53,7 +54,7 @@ export const TShirtCustomizerModal: React.FC<TShirtCustomizerModalProps> = ({
       ...baseTee,
       id: `${baseTee.id}-custom-${Date.now()}`,
       title: `${currentSchool.shortName} Custom Printed Varsity Tee`,
-      price: baseTee.price + 5.0, // small custom print fee
+      price: baseTee.price + 50, // ₹50 custom print fee
       badge: 'Custom Printed',
       description: `Personalized department tee featuring ${currentSchool.name}. Custom back print: "${customText.toUpperCase()}" with Year "${gradYear}".`,
     };
@@ -137,9 +138,9 @@ export const TShirtCustomizerModal: React.FC<TShirtCustomizerModalProps> = ({
 
                 {/* FRONT VIEW CONTENT */}
                 {viewSide === 'front' ? (
-                  <div className={`space-y-3 px-4 ${tshirtColor.textDark ? 'text-slate-900' : 'text-white'}`}>
+                  <div className={`space-y-2.5 px-4 ${tshirtColor.textDark ? 'text-slate-900' : 'text-white'}`}>
                     <div className="text-[10px] uppercase font-mono tracking-widest opacity-80">
-                      UNIVERSITY OF TECHNOLOGY
+                      SHIRPUR EDUCATION SOCIETY (SES)
                     </div>
                     
                     {/* Arched or Bold Varsity Department Title */}
@@ -148,8 +149,10 @@ export const TShirtCustomizerModal: React.FC<TShirtCustomizerModalProps> = ({
                     </div>
 
                     {/* Department Crest / Seal */}
-                    <div className="w-14 h-14 mx-auto rounded-full border-2 border-current flex items-center justify-center opacity-90 my-2">
-                      <span className="font-display font-black text-xs">EST. 1968</span>
+                    <div className="flex justify-center my-1.5">
+                      <div className="p-1 rounded-full bg-white/10 backdrop-blur-xs border border-current">
+                        <StoreLogo size={42} showBadge={false} />
+                      </div>
                     </div>
 
                     <div className="text-[11px] font-medium tracking-wide opacity-85">
@@ -308,11 +311,11 @@ export const TShirtCustomizerModal: React.FC<TShirtCustomizerModalProps> = ({
                 <div>
                   <div className="text-xs text-slate-500">Customized Department Tee</div>
                   <div className="text-xl font-bold font-mono tabular-nums text-slate-900">
-                    $29.99
+                    ₹499
                   </div>
                 </div>
                 <div className="text-right text-xs text-emerald-700 font-medium">
-                  Free custom print with Student ID
+                  Subsidized SES Grahak Bhandar Rate
                 </div>
               </div>
 

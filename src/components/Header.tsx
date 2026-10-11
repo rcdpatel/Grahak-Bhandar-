@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShoppingBag, Sparkles, Shield, UserCheck } from 'lucide-react';
 import { ProductCategory, SchoolDepartment } from '../types/store';
+import { StoreLogo } from './StoreLogo';
 
 interface HeaderProps {
   cartCount: number;
@@ -30,16 +31,29 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-8 h-18">
           
-          {/* Zone 1: Single text element wordmark in display face */}
+          {/* Zone 1: Wordmark with Official SES Logo in Web Corner */}
           <button
             onClick={() => {
               onSelectCategory('all');
               onSelectSchool('all');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-2xl font-bold tracking-tight text-slate-900 font-display whitespace-nowrap shrink-0 hover:text-amber-800 transition-colors cursor-pointer text-left"
+            className="flex items-center gap-3 shrink-0 cursor-pointer text-left group"
           >
-            Grahak Bhandar
+            <StoreLogo size={48} />
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2">
+                <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-slate-900 font-display whitespace-nowrap group-hover:text-amber-800 transition-colors leading-tight">
+                  Grahak Bhandar
+                </span>
+                <span className="text-[10px] font-mono uppercase bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded font-bold border border-amber-200 hidden xs:inline">
+                  SES Campus
+                </span>
+              </div>
+              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider hidden sm:inline">
+                Shirpur Education Society · ॥ सा विद्या या विमुक्तये ॥
+              </span>
+            </div>
           </button>
 
           {/* Zone 2: 4-5 clean single-line text navigation links */}
