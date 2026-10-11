@@ -1,0 +1,6 @@
+{
+  "name": "QuadDepot - Campus Store Online",
+  "description": "Official online store for campus apparel, department t-shirts, academic sets, scientific calculators, and physical store campus pickup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
