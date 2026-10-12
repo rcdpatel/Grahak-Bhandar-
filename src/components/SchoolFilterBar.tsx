@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, X, Shirt, Backpack, Layers, Sparkles, ArrowUpDown } from 'lucide-react';
+import { Search, X, Shirt, ShieldCheck, Sparkles, Layers, ArrowUpDown } from 'lucide-react';
 import { ProductCategory, SchoolDepartment } from '../types/store';
 import { SCHOOLS } from '../data/products';
 
@@ -32,19 +32,19 @@ export const SchoolFilterBar: React.FC<SchoolFilterBarProps> = ({
   onOpenCustomizer,
   totalFilteredCount,
 }) => {
-  // Required categories: 't-shirts', 'accessories', 'college components'
+  // Categories: All, T-Shirts, Uniforms, Generals
   const categoryTabs: { id: ProductCategory | 'all'; label: string; icon: React.ReactNode }[] = [
-    { id: 'all', label: 'All Products', icon: <Layers className="w-3.5 h-3.5" /> },
-    { id: 't-shirts', label: 'T-Shirts', icon: <Shirt className="w-3.5 h-3.5" /> },
-    { id: 'accessories', label: 'Accessories', icon: <Backpack className="w-3.5 h-3.5" /> },
-    { id: 'college-components', label: 'College Components', icon: <Layers className="w-3.5 h-3.5 text-amber-600" /> },
+    { id: 'all', label: 'All Items', icon: <Layers className="w-3.5 h-3.5" /> },
+    { id: 't-shirts', label: 'College T-Shirts', icon: <Shirt className="w-3.5 h-3.5" /> },
+    { id: 'uniforms', label: 'College Uniforms', icon: <ShieldCheck className="w-3.5 h-3.5 text-blue-600" /> },
+    { id: 'generals', label: 'All Colleges Generals', icon: <Sparkles className="w-3.5 h-3.5 text-amber-600" /> },
   ];
 
   return (
     <div className="bg-white border-b border-slate-200 sticky top-18 z-20 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-4">
         
-        {/* Row 1: Search by Name & Price Sort Controls (Highlighting search and price low-to-high, high-to-low) */}
+        {/* Row 1: Search by Name & Price Sort Controls */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
           
           {/* Search by Product Name Input */}
@@ -52,7 +52,7 @@ export const SchoolFilterBar: React.FC<SchoolFilterBarProps> = ({
             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             <input
               type="text"
-              placeholder="Search products by name (e.g. fx-991EX, Engineering Tee, Compass Set, Lab Coat...)"
+              placeholder="Search college uniforms & t-shirts (e.g. IMRD BCA Uniform, RCPACS BSc, Polytechnic, RCPIT...)"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               className="w-full pl-10 pr-9 py-2 text-xs sm:text-sm bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-slate-900 focus:bg-white placeholder:text-slate-400"
@@ -103,7 +103,7 @@ export const SchoolFilterBar: React.FC<SchoolFilterBarProps> = ({
 
         </div>
 
-        {/* Row 2: Categories: T-Shirts, Accessories, College Components */}
+        {/* Row 2: Categories: All, T-Shirts, Uniforms, Generals */}
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 pt-1 border-t border-slate-100">
           
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
@@ -139,16 +139,16 @@ export const SchoolFilterBar: React.FC<SchoolFilterBarProps> = ({
               className="text-amber-800 hover:text-amber-900 font-semibold flex items-center gap-1 cursor-pointer transition-colors"
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span>Personalize Tee</span>
+              <span>Personalize College Tee</span>
             </button>
           </div>
 
         </div>
 
-        {/* Row 3: College / Department Faculty Filter */}
+        {/* Row 3: Colleges Filter */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none pt-1 border-t border-slate-100">
           <span className="text-[11px] uppercase font-semibold text-slate-400 mr-1 shrink-0">
-            Faculties:
+            Colleges:
           </span>
           <button
             onClick={() => onSelectSchool('all')}
@@ -158,7 +158,7 @@ export const SchoolFilterBar: React.FC<SchoolFilterBarProps> = ({
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            All Faculties
+            All Colleges
           </button>
           {SCHOOLS.map((school) => {
             const isSelected = selectedSchool === school.id;

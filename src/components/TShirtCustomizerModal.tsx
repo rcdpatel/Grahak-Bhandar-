@@ -20,7 +20,7 @@ export const TShirtCustomizerModal: React.FC<TShirtCustomizerModalProps> = ({
   if (!isOpen) return null;
 
   const [selectedSchoolId, setSelectedSchoolId] = useState<SchoolDepartment>(
-    initialProduct?.school || 'engineering'
+    initialProduct?.school || 'imrd'
   );
   const [viewSide, setViewSide] = useState<'front' | 'back'>('front');
   const [tshirtColor, setTshirtColor] = useState<{ name: string; hex: string; textDark: boolean }>({

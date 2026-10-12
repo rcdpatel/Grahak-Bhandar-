@@ -4,10 +4,10 @@ import { PHYSICAL_STORE_INFO } from '../data/products';
 
 export const PhysicalStoreSection: React.FC = () => {
   const aisles = [
-    { aisle: 'Aisle 1', name: 'Apparel & Department Merch', desc: 'Faculty tees, varsity hoodies, collegiate caps, sweatpants' },
-    { aisle: 'Aisle 2', name: 'Drafting Sets & Campus Living', desc: 'Compass sets, insulated thermal bottles, backpacks, lanyards' },
-    { aisle: 'Aisle 3', name: 'Calculators & Tech Bay', desc: 'fx-991EX, TI-84 CE, BA II Plus, flash drives, cables, chargers' },
-    { aisle: 'Aisle 4', name: 'Lab Gear & Protective Safety', desc: 'White cotton lab coats, splash goggles, dissection kits, manuals' },
+    { aisle: 'Aisle 1', name: 'IMRD & RCPACS College Uniforms', desc: 'IMRD BCA & MCA tailored uniform sets, RCPACS BCA shirts, formal trousers & ties' },
+    { aisle: 'Aisle 2', name: 'Polytechnic & RCPIT Engineering', desc: 'RC Patel Polytechnic workshop uniforms, RCPIT Engineering varsity tees & apparel' },
+    { aisle: 'Aisle 3', name: 'SES Central Heritage & Varsity', desc: 'SES All Colleges Gold-Seal heritage tees, 380 GSM heavyweight fleece winter hoodies' },
+    { aisle: 'Aisle 4', name: 'Practical Lab Aprons & Campus Gear', desc: '100% white cotton SES embroidered lab coats, RFID campus lanyards, student backpacks' },
   ];
 
   return (

@@ -81,26 +81,32 @@ export const Header: React.FC<HeaderProps> = ({
               T-Shirts
             </button>
             <button
-              onClick={() => onSelectCategory('accessories')}
+              onClick={() => {
+                onSelectCategory('uniforms');
+                onSelectSchool('all');
+              }}
               className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                activeCategory === 'accessories' ? 'text-slate-950 font-semibold border-b-2 border-slate-900 pb-0.5' : ''
+                activeCategory === 'uniforms' ? 'text-slate-950 font-semibold border-b-2 border-slate-900 pb-0.5' : ''
               }`}
             >
-              Accessories
+              Uniforms
             </button>
             <button
-              onClick={() => onSelectCategory('college-components')}
+              onClick={() => {
+                onSelectCategory('generals');
+                onSelectSchool('all');
+              }}
               className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-                activeCategory === 'college-components' ? 'text-slate-950 font-semibold border-b-2 border-slate-900 pb-0.5' : ''
+                activeCategory === 'generals' ? 'text-slate-950 font-semibold border-b-2 border-slate-900 pb-0.5' : ''
               }`}
             >
-              College Components
+              All Colleges Generals
             </button>
             <button
               onClick={onOpenCalcChecker}
               className="text-slate-600 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
-              Exam Approval
+              Uniform Guide
             </button>
           </nav>
 

@@ -40,29 +40,31 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
     pickupTimeSlot: 'Today: 1:00 PM – 2:30 PM (Express Counter)',
     items: [
       {
-        id: 'tee-eng-1',
-        productId: 'tee-engineering-cs',
-        title: 'RCPIT Computer Engineering & IT Heavyweight Varsity Tee',
-        price: 449,
+        id: 'order-imrd-bca-1',
+        productId: 'imrd-bca-uniform',
+        title: 'IMRD College BCA Official Tailored Uniform Set (Shirt + Trousers + Crest + Tie)',
+        price: 1199,
         image: PRODUCTS[0].image,
         quantity: 1,
-        selectedSize: 'L',
-        selectedColor: 'Midnight Navy',
-        storeLocation: 'Aisle 1 · Apparel Rack A',
+        selectedSize: 'L (42)',
+        selectedColor: 'IMRD BCA Light Blue & Charcoal',
+        storeLocation: 'Aisle 1 · Rack A (IMRD Uniforms)',
       },
       {
-        id: 'calc-1',
-        productId: 'calc-casio-fx991ex',
-        title: 'Scientific Engineering Calculator (Casio fx-991EX ClassWiz)',
-        price: 1295,
-        image: PRODUCTS[6].image,
+        id: 'order-rcpit-tee-1',
+        productId: 'tee-rcpit-engineering',
+        title: 'R. C. Patel Institute of Technology (RCPIT) Heavyweight Engineering Varsity T-Shirt',
+        price: 449,
+        image: PRODUCTS[8].image,
         quantity: 1,
-        storeLocation: 'Aisle 3 · Shelf B2',
+        selectedSize: 'L',
+        selectedColor: 'RCPIT Royal Blue',
+        storeLocation: 'Front Display · Table 1 (RCPIT Apparel)',
       },
     ],
-    subtotal: 1744,
-    discount: 174,
-    total: 1570,
+    subtotal: 1648,
+    discount: 165,
+    total: 1483,
     paymentMethod: 'Campus Student Card Account (Direct Charge)',
     pickupCode: 'QD-7412',
     status: 'Ready for Pickup',
@@ -78,28 +80,31 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
     pickupTimeSlot: 'Today: 2:30 PM – 4:00 PM (Express Counter)',
     items: [
       {
-        id: 'coat-1',
-        productId: 'lab-cotton-coat-embroidered',
-        title: '100% Pure White Cotton Laboratory Apron with SES College Crest',
-        price: 499,
-        image: PRODUCTS[10].image,
+        id: 'order-rcpacs-bca-1',
+        productId: 'rcpacs-bca-uniform',
+        title: 'RCPACS College BCA Official Computer Applications Uniform Set (Shirt + Trousers)',
+        price: 1150,
+        image: PRODUCTS[3].image,
         quantity: 1,
-        selectedSize: 'M',
-        storeLocation: 'Aisle 4 · Science Racks',
+        selectedSize: 'M (40)',
+        selectedColor: 'RCPACS Sky Blue & Charcoal',
+        storeLocation: 'Aisle 1 · Rack C (RCPACS Uniforms)',
       },
       {
-        id: 'goggles-1',
-        productId: 'lab-anti-fog-safety-goggles',
-        title: 'Chemical Splash & Impact Anti-Fog Safety Lab Goggles',
-        price: 149,
-        image: PRODUCTS[11].image,
+        id: 'order-rcpacs-bsc-tee',
+        productId: 'tee-rcpacs-bsc',
+        title: 'RCPACS College BSc Faculty of Science Heavyweight Departmental T-Shirt',
+        price: 419,
+        image: PRODUCTS[4].image,
         quantity: 1,
-        storeLocation: 'Aisle 4 · Safety Bins',
+        selectedSize: 'M',
+        selectedColor: 'Forest Emerald',
+        storeLocation: 'Aisle 2 · Rack B (RCPACS Apparel)',
       },
     ],
-    subtotal: 648,
-    discount: 65,
-    total: 583,
+    subtotal: 1569,
+    discount: 157,
+    total: 1412,
     paymentMethod: 'Pay in Person at Physical Counter (Room 104)',
     pickupCode: 'QD-8921',
     status: 'Processing at Desk',
@@ -115,18 +120,30 @@ const INITIAL_SAMPLE_ORDERS: PickupOrder[] = [
     pickupTimeSlot: 'Yesterday Afternoon',
     items: [
       {
-        id: 'draft-1',
-        productId: 'set-master-geometry-drafting',
-        title: 'Precision Metal Engineering Drawing & Drafting 10-Piece Tin Set',
-        price: 349,
-        image: PRODUCTS[9].image,
+        id: 'order-polytechnic-1',
+        productId: 'polytechnic-workshop-uniform',
+        title: 'R. C. Patel Polytechnic Official Engineering Workshop Drill Uniform Set',
+        price: 899,
+        image: PRODUCTS[7].image,
         quantity: 1,
-        storeLocation: 'Aisle 2 · Station B4',
+        selectedSize: 'L (42)',
+        storeLocation: 'Aisle 1 · Rack E (Workshop Wear)',
+      },
+      {
+        id: 'order-polytechnic-tee',
+        productId: 'tee-polytechnic-tech',
+        title: 'R. C. Patel Polytechnic College Technical Workshop & Diploma Engineering T-Shirt',
+        price: 439,
+        image: PRODUCTS[6].image,
+        quantity: 1,
+        selectedSize: 'L',
+        selectedColor: 'Charcoal Asphalt',
+        storeLocation: 'Aisle 2 · Rack C (Polytechnic Apparel)',
       },
     ],
-    subtotal: 349,
-    discount: 35,
-    total: 314,
+    subtotal: 1338,
+    discount: 134,
+    total: 1204,
     paymentMethod: 'UPI / Online (GPay/PhonePe)',
     pickupCode: 'QD-5501',
     status: 'Completed',
@@ -142,7 +159,7 @@ const INITIAL_SAMPLE_STUDENTS: RegisteredStudent[] = [
     registeredDate: 'Sep 2024',
     ordersCount: 3,
     totalSpent: 3450,
-    department: 'R. C. Patel Institute of Technology (RCPIT)',
+    department: 'IMRD College (BCA)',
   },
   {
     studentId: 'STU-2024-3382',
@@ -151,7 +168,7 @@ const INITIAL_SAMPLE_STUDENTS: RegisteredStudent[] = [
     registeredDate: 'Oct 2024',
     ordersCount: 2,
     totalSpent: 1680,
-    department: 'R. C. Patel Institute of Pharmacy (RCPIPER)',
+    department: 'RCPACS College (BCA / BSc)',
   },
   {
     studentId: 'STU-2023-8819',
@@ -160,22 +177,22 @@ const INITIAL_SAMPLE_STUDENTS: RegisteredStudent[] = [
     registeredDate: 'Aug 2023',
     ordersCount: 5,
     totalSpent: 4200,
-    department: 'SES Polytechnic & Architecture Studies',
+    department: 'R. C. Patel Polytechnic College',
   },
   {
     studentId: 'STU-2024-5821',
-    name: 'Alex Rivers',
+    name: 'Saksham Verma',
     phoneNumber: '+91 98234 11092',
     registeredDate: 'Jan 2025',
     ordersCount: 1,
-    totalSpent: 899,
-    department: 'SES Institute of Management & Research',
+    totalSpent: 1698,
+    department: 'R. C. Patel Institute of Technology (RCPIT)',
   },
 ];
 
 export default function App() {
   // Navigation & Filtering State
-  // Categories requested: 't-shirts', 'accessories', 'college-components'
+  // Categories: 't-shirts', 'uniforms', 'generals'
   const [selectedCategory, setSelectedCategory] = useState<ProductCategory | 'all'>('all');
   const [selectedSchool, setSelectedSchool] = useState<SchoolDepartment | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -209,15 +226,15 @@ export default function App() {
     // Initial starter item
     return [
       {
-        id: 'initial-eng-tee',
-        productId: 'tee-engineering-cs',
-        title: 'RCPIT Computer Engineering & IT Heavyweight Varsity Tee',
-        price: 449,
+        id: 'initial-imrd-uniform',
+        productId: 'imrd-bca-uniform',
+        title: 'IMRD College BCA Official Tailored Uniform Set (Shirt + Trousers + Crest + Tie)',
+        price: 1199,
         image: PRODUCTS[0].image,
         quantity: 1,
-        selectedSize: 'L',
-        selectedColor: 'Midnight Navy',
-        storeLocation: 'Aisle 1 · Apparel Rack A',
+        selectedSize: 'L (42)',
+        selectedColor: 'IMRD BCA Light Blue & Charcoal',
+        storeLocation: 'Aisle 1 · Rack A (IMRD Uniforms)',
       },
     ];
   });
@@ -426,17 +443,19 @@ export default function App() {
       items: [
         {
           id: `sim-item-${Date.now()}`,
-          productId: 'calc-casio-fx991ex',
-          title: 'Scientific Engineering Calculator (Casio fx-991EX ClassWiz)',
-          price: 1295,
-          image: PRODUCTS[6].image,
+          productId: 'imrd-bca-uniform',
+          title: 'IMRD College BCA Official Tailored Uniform Set (Shirt + Trousers + Crest + Tie)',
+          price: 1199,
+          image: PRODUCTS[0].image,
           quantity: 1,
-          storeLocation: 'Aisle 3 · Shelf B2',
+          selectedSize: 'M (40)',
+          selectedColor: 'IMRD BCA Light Blue & Charcoal',
+          storeLocation: 'Aisle 1 · Rack A (IMRD Uniforms)',
         },
       ],
-      subtotal: 1295,
-      discount: 130,
-      total: 1165,
+      subtotal: 1199,
+      discount: 120,
+      total: 1079,
       paymentMethod: 'Campus Student Card Account (Direct Charge)',
       pickupCode: `QD-${randomNum}`,
       status: 'Ready for Pickup',
@@ -469,7 +488,7 @@ export default function App() {
   // Filtered & Sorted Catalog (Search by Name, Category filter, Price Low-High / High-Low)
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((item) => {
-      // Category filter: 't-shirts' | 'accessories' | 'college-components'
+      // Category filter: 't-shirts' | 'uniforms' | 'generals'
       if (selectedCategory !== 'all' && item.category !== selectedCategory) {
         return false;
       }
@@ -580,7 +599,7 @@ export default function App() {
         onOpenCustomizerForSchool={(schoolId) => {
           setSelectedSchool(schoolId);
           const baseTee = PRODUCTS.find(
-            (p) => p.category === 't-shirts' && p.school === schoolId
+            (p) => (p.category === 't-shirts' || p.category === 'generals') && p.school === schoolId
           );
           setCustomizerProduct(baseTee || null);
           setIsCustomizerOpen(true);

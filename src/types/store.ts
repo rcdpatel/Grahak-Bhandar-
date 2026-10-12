@@ -1,15 +1,14 @@
 export type SchoolDepartment = 
-  | 'engineering' 
-  | 'medicine' 
-  | 'business' 
-  | 'arts' 
-  | 'science' 
-  | 'varsity';
+  | 'imrd' 
+  | 'rcpacs' 
+  | 'polytechnic' 
+  | 'rcpit' 
+  | 'generals';
 
 export type ProductCategory = 
   | 't-shirts' 
-  | 'accessories' 
-  | 'college-components';
+  | 'uniforms' 
+  | 'generals';
 
 export interface ProductVariant {
   id: string;
@@ -26,20 +25,20 @@ export interface Product {
   school?: SchoolDepartment;
   schoolName?: string;
   category: ProductCategory;
-  subCategory?: string; // e.g. "Calculators", "Drafting Sets", "Lab Gear", "Bags & Bottles"
+  subCategory?: string; // e.g. "BCA Uniform", "MCA Uniform", "Department T-Shirt", "Lab Uniform", "Varsity Winter"
   price: number;
   originalPrice?: number;
   image: string;
   badge?: string;
   rating: number;
   reviewsCount: number;
-  storeLocation: string; // e.g. "Aisle 2 · Rack B"
+  storeLocation: string; // e.g. "Aisle 1 · Apparel Rack A"
   stockCount: number;
   description: string;
   specs: { label: string; value: string }[];
   sizes?: string[];
   colors?: { name: string; hex: string }[];
-  isExamApproved?: boolean; // For calculators
+  isUniformApproved?: boolean;
   departmentSlogan?: string;
 }
 

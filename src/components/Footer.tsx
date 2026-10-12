@@ -44,64 +44,56 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Column 2: Department T-Shirts */}
+          {/* Column 2: Colleges & Faculties */}
           <div className="space-y-2.5">
             <div className="text-xs font-semibold text-white uppercase tracking-wider">
-              Department T-Shirts
+              Colleges & Faculties
             </div>
             <ul className="space-y-1.5">
               <li>
                 <button
-                  onClick={() => onSelectSchool('engineering')}
+                  onClick={() => onSelectSchool('imrd')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  School of Engineering & CS
+                  IMRD College (BCA & MCA)
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectSchool('medicine')}
+                  onClick={() => onSelectSchool('rcpacs')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Medicine & Health Sciences
+                  RCPACS College (BCA & BSc)
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectSchool('business')}
+                  onClick={() => onSelectSchool('polytechnic')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Business & Economics
+                  RC Patel Polytechnic College
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectSchool('arts')}
+                  onClick={() => onSelectSchool('rcpit')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Architecture & Design
+                  RCPIT Engineering College
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectSchool('science')}
+                  onClick={() => onSelectSchool('generals')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Science & Mathematics
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onSelectSchool('varsity')}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Campus Varsity Heritage
+                  All Colleges Generals (SES Central)
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: College Components & Accessories */}
+          {/* Column 3: Store Categories */}
           <div className="space-y-2.5">
             <div className="text-xs font-semibold text-white uppercase tracking-wider">
               Store Categories
@@ -112,23 +104,23 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onSelectCategory('t-shirts')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Department T-Shirts
+                  College Department T-Shirts
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectCategory('accessories')}
+                  onClick={() => onSelectCategory('uniforms')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Campus Accessories & Bags
+                  College Uniform Sets (BCA / MCA / Engg)
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onSelectCategory('college-components')}
+                  onClick={() => onSelectCategory('generals')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  College Components & Tech
+                  All Colleges Generals & Lab Gear
                 </button>
               </li>
               <li>
@@ -136,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={onOpenCalcChecker}
                   className="text-amber-400 hover:text-amber-300 transition-colors cursor-pointer text-left"
                 >
-                  Exam Calculator Approval Guide
+                  Uniform & Dress Code Guide
                 </button>
               </li>
             </ul>

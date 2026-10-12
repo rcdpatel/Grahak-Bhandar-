@@ -101,15 +101,15 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 </div>
               </div>
 
-              {/* Exam Approval or Material Highlight */}
-              {product.isExamApproved && (
-                <div className="bg-emerald-50 border border-emerald-200 p-3.5 rounded-xl text-xs text-emerald-900 space-y-1">
+              {/* Prescribed College Dress Code & Uniform Highlight */}
+              {product.isUniformApproved && (
+                <div className="bg-blue-50 border border-blue-200 p-3.5 rounded-xl text-xs text-blue-900 space-y-1">
                   <div className="font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-700" />
-                    University Board Exam Approved
+                    <ShieldCheck className="w-4 h-4 text-blue-700" />
+                    Official Prescribed College Dress Code
                   </div>
-                  <p className="text-emerald-800 leading-relaxed">
-                    Certified compliant for Calculus 101/201, Physics Midterms, Chemistry Finals, and FE/PE exams. Memory clearable before examination.
+                  <p className="text-blue-800 leading-relaxed">
+                    100% compliant with college discipline guidelines, official monogram placement, and campus dress code inspections.
                   </p>
                 </div>
               )}

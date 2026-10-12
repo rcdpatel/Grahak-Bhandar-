@@ -1,6 +1,6 @@
 import React from 'react';
-import { Shirt, ArrowRight, Sparkles } from 'lucide-react';
-import { SCHOOLS, COLLEGE_TSHIRTS_IMG, PRODUCTS } from '../data/products';
+import { ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
+import { SCHOOLS, PRODUCTS } from '../data/products';
 import { SchoolDepartment, Product } from '../types/store';
 
 interface DepartmentSpotlightProps {
@@ -22,29 +22,30 @@ export const DepartmentSpotlight: React.FC<DepartmentSpotlightProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div className="space-y-1">
             <span className="text-xs uppercase tracking-wider font-semibold text-slate-500">
-              Department Identity & Apparel
+              Prescribed College Uniforms & T-Shirts
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-display">
-              Official Individual Department T-Shirts
+              Official Campus Uniforms & Department T-Shirts
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 max-w-2xl">
-              Each faculty features its own custom typography, founding year, and department colors. Screen-printed on 240 GSM organic cotton at the campus store print shop.
+              Authentic student uniforms and varsity t-shirts for IMRD College (BCA & MCA), RCPACS College (BCA & BSc), RC Patel Polytechnic, RCPIT Engineering, and SES All Colleges General.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500">
-              Showing 6 Official Colleges
+            <span className="text-xs font-medium text-slate-500 bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              5 Prescribed Campus Faculties
             </span>
           </div>
         </div>
 
-        {/* 6-Department Grid */}
+        {/* 5-College Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SCHOOLS.map((school) => {
-            const deptTee = PRODUCTS.find(
-              (p) => p.category === 't-shirts' && p.school === school.id
-            );
+            const schoolProducts = PRODUCTS.filter((p) => p.school === school.id);
+            const featuredUniform = schoolProducts.find((p) => p.category === 'uniforms');
+            const featuredTee = schoolProducts.find((p) => p.category === 't-shirts' || p.category === 'generals');
+            const primaryItem = featuredUniform || featuredTee || schoolProducts[0];
 
             return (
               <div
@@ -64,7 +65,7 @@ export const DepartmentSpotlight: React.FC<DepartmentSpotlightProps> = ({
                       {school.shortName}
                     </span>
                     <span className="text-[11px] text-slate-400 font-mono">
-                      {school.count} items in store
+                      {schoolProducts.length} items in store
                     </span>
                   </div>
 
@@ -81,28 +82,48 @@ export const DepartmentSpotlight: React.FC<DepartmentSpotlightProps> = ({
                     Location: {school.building}
                   </p>
 
-                  {/* Featured Tee Preview Box */}
-                  {deptTee && (
+                  {/* Primary Item Preview Box */}
+                  {primaryItem && (
                     <div 
-                      onClick={() => onSelectProduct(deptTee)}
+                      onClick={() => onSelectProduct(primaryItem)}
                       className="mt-2 p-2.5 bg-slate-50 rounded-lg border border-slate-100 hover:bg-slate-100 transition-colors cursor-pointer flex items-center gap-3"
                     >
-                      <div className="w-10 h-10 rounded-md overflow-hidden bg-slate-200 shrink-0">
+                      <div className="w-12 h-12 rounded-md overflow-hidden bg-slate-200 shrink-0">
                         <img
-                          src={deptTee.image}
-                          alt={deptTee.title}
+                          src={primaryItem.image}
+                          alt={primaryItem.title}
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-xs font-medium text-slate-900 truncate">
-                          {deptTee.shortTitle}
+                        <div className="text-xs font-semibold text-slate-900 truncate">
+                          {primaryItem.shortTitle}
                         </div>
-                        <div className="text-[11px] font-mono tabular-nums text-slate-500">
-                          ₹{deptTee.price.toLocaleString('en-IN')} · In Store Rack A
+                        <div className="text-[11px] font-mono tabular-nums text-slate-600 font-medium">
+                          ₹{primaryItem.price.toLocaleString('en-IN')}
+                          {primaryItem.isUniformApproved && (
+                            <span className="ml-1 text-[10px] text-blue-700 bg-blue-50 px-1 py-0.2 rounded font-sans">
+                              Official Dress Code
+                            </span>
+                          )}
                         </div>
                       </div>
+                    </div>
+                  )}
+
+                  {/* Secondary item preview if available */}
+                  {featuredTee && featuredTee.id !== primaryItem?.id && (
+                    <div 
+                      onClick={() => onSelectProduct(featuredTee)}
+                      className="p-2 bg-slate-50/70 rounded-lg border border-slate-100 hover:bg-slate-100 transition-colors cursor-pointer flex items-center justify-between text-xs"
+                    >
+                      <span className="text-slate-700 truncate font-medium">
+                        {featuredTee.shortTitle}
+                      </span>
+                      <span className="font-mono text-slate-500 shrink-0 pl-2">
+                        ₹{featuredTee.price}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -114,14 +135,14 @@ export const DepartmentSpotlight: React.FC<DepartmentSpotlightProps> = ({
                     className="text-xs font-medium text-amber-700 hover:text-amber-800 flex items-center gap-1 cursor-pointer transition-colors"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
-                    <span>Personalize</span>
+                    <span>Personalize Tee</span>
                   </button>
 
                   <button
                     onClick={() => onSelectSchool(school.id)}
                     className="text-xs font-semibold text-slate-900 hover:text-slate-700 flex items-center gap-1 cursor-pointer transition-colors"
                   >
-                    <span>View All</span>
+                    <span>View Faculty Items</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
